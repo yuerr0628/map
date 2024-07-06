@@ -3,10 +3,13 @@
 cv::Mat canvas(1000, 1000, CV_8UC3, cv::Scalar(255, 255, 255));
 cv::Mat canva(1000, 1000, CV_8UC3, cv::Scalar(255, 255, 255));
 cv::String windowName = "Vehicle Path";
+ 
+//cv::namedWindow(windowName, cv::WINDOW_NORMAL);
 
 void drawVehicleTrajectory(const std::vector<PoseData>& path)
 {
     canvas.setTo(cv::Scalar(255, 255, 255)); // 清空画布
+    cv::namedWindow(windowName, cv::WINDOW_NORMAL);
 
     // 绘制车辆轨迹
     for (const auto& pose : path)
