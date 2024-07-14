@@ -14,7 +14,7 @@ import numpy as np
 import math
 import random
 from sensor_msgs.msg import NavSatFix
-from cv_bridge import CvBridge
+# from cv_bridge import CvBridge
 from paddleocr import PaddleOCR
 from PIL import Image, ImageDraw, ImageFont
 import logging
@@ -195,7 +195,6 @@ class gcn_detector_server():
             image_opencv = image_opencv.byteswap().newbyteorder()
         # print("image_opencv: ", type(image_opencv))
         return image_opencv
-
 
 
 

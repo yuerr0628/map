@@ -168,7 +168,7 @@ void AssociatedParkingInfo::worldlocationspots(const std::vector<AssociatedPair>
         }
 
     }
-        drawslot(worldassociatedPairs);
+        // drawslot(worldassociatedPairs);
     //  matchParkingSpots(worldassociatedPairs);
 
 }
@@ -305,7 +305,7 @@ void AssociatedParkingInfo::imageCallback(const sensor_msgs::CompressedImageCons
 
         // 转换为ROS图像消息
         sensor_msgs::ImagePtr image_msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8", image).toImageMsg();
-
+       
         // 创建ROS服务客户端
         // ros::NodeHandle mh;
         // ros::ServiceClient client = mh.serviceClient<parking_slot_detection::gcn_parking>("gcn_service");

@@ -4,7 +4,7 @@
 import rospy
 from sensor_msgs.msg import CompressedImage
 from sensor_msgs.msg import NavSatFix
-from cv_bridge import CvBridge
+# from cv_bridge import CvBridge
 import cv2
 import numpy as np
 from paddleocr import PaddleOCR
@@ -19,9 +19,8 @@ import time
 logging.disable(logging.DEBUG)
 logging.disable(logging.WARNING)
 
-ocr = PaddleOCR(use_angle_cls=True,use_gpu=True)
+ocr = PaddleOCR(use_angle_cls=True)
 print("enter")
-
 
 def avpocr(compressed_image):
 

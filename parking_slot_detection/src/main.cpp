@@ -5,6 +5,7 @@
 #include <sensor_msgs/NavSatFix.h>
 #include <sensor_msgs/Imu.h>
 #include <opencv2/opencv.hpp>
+#include "rvizshow.h"
 
 int main(int argc, char **argv) {
     ros::init(argc, argv, "vehicle_pose");
@@ -17,6 +18,8 @@ int main(int argc, char **argv) {
     // VehiclePose VehiclePose(nh);
     VehiclePose VehiclePose(nh);
     AssociatedParkingInfo AssociatedParkingInfo(nh);
+    // mydisplay.RvizDisplay(nh);
+
     
     ros::spin();
     return 0;

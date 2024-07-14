@@ -62,6 +62,7 @@ add_executable(client_test_node
   src/drawmap.cpp
   src/associate.cpp
   src/Hungarian.cpp
+  src/rvizshow.cpp
 )
 
 target_link_libraries(client_test_node

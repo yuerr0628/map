@@ -1,6 +1,9 @@
 #include "pose.h"
 #include <tf/tf.h>
 #include "drawmap.h"
+#include "rvizshow.h"
+
+RvizDisplay mydisplay;
 
 bool init=false;
 static double EARTH_RADIUS = 6378.137;//地球半径
@@ -21,7 +24,9 @@ double rad(double d)
 VehiclePose::VehiclePose(ros::NodeHandle& nh) {
     gps_sub= nh.subscribe("/Inertial/gps/fix", 10, &VehiclePose::gpsCallback, this);
     imu_sub = nh.subscribe("/Inertial/imu/data", 10, &VehiclePose::imuCallback, this);
-    
+    // path_pub = nh.advertise<nav_msgs::Path>("vehicle_trajectory", 10);
+
+    mydisplay.RvizDisplay_init(nh);
 }
 
 void VehiclePose::imuCallback(const sensor_msgs::Imu::ConstPtr& imu_msg) {
@@ -86,7 +91,12 @@ void VehiclePose::gpsCallback(const sensor_msgs::NavSatFix::ConstPtr& gps_msg) {
         pose.y=y;
         pose.z=z;
         pose_path.push_back(pose);
-        drawVehicleTrajectory(pose_path);
+         drawVehicleTrajectory(pose_path);
+        // RvizDisplay display;
+        mydisplay.publishPosePath(pose);
+
+        // publishPosePath(pose);
+
     }
     
 

@@ -24,6 +24,7 @@ public:
     
     ros::Subscriber gps_sub;
     ros::Subscriber imu_sub;
+    // ros::Publisher path_pub;
 
     // 回调函数
     void imuCallback(const sensor_msgs::Imu::ConstPtr& imu_msg);
